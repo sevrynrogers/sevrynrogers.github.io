@@ -1,33 +1,184 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sevryn Rogers — Portfolio</title>
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-<style>
-  :root{--accent:#2b6cb0;--bg:#f7f7f5;--card:#fff;--text:#222;}
-  *{box-sizing:border-box;}
-  body{margin:0;font-family:system-ui,Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.5;}
-  header{background:var(--accent);color:#fff;padding:1.5rem 1rem;text-align:center;}
-  header h1{margin:0;font-size:1.8rem;}
-  header p{margin:.3rem 0 0;font-size:1rem;opacity:.95;}
-  nav{display:flex;flex-wrap:wrap;justify-content:center;gap:.5rem;background:#1a4e85;padding:.5rem;}
-  nav a{color:#fff;text-decoration:none;font-size:.9rem;padding:.3rem .6rem;}
-  nav a:hover{text-decoration:underline;}
-  main{max-width:900px;margin:0 auto;padding:1rem;}
-  section{margin:2rem 0;}
-  h2{color:var(--accent);border-bottom:2px solid var(--accent);padding-bottom:.3rem;}
-  .cards{display:flex;flex-wrap:wrap;gap:1rem;}
-  .card{background:var(--card);border:1px solid #ddd;border-radius:8px;padding:1rem;flex:1 1 260px;cursor:pointer;box-shadow:0 1px 3px rgba(0,0,0,.1);}
-  .card h3{margin-top:0;}
-  .details{display:none;margin-top:.7rem;font-size:.95rem;}
-  .details.open{display:block;}
-  .details dt{font-weight:bold;margin-top:.5rem;}
-  .details dd{margin:.2rem 0 0;}
-  #map{height:320px;width:100%;border-radius:8px;margin-top:1rem;}
-  .resume-list{background:var(--card);border:1px solid #ddd;border-radius:8px;padding:1rem;}
-  footer{text-align:center;padding:1rem;font-size:.85rem;color:#666;}
-  a.contact-link{color:var(--accent);font-weight:bold;}
-  .add{color:#b03030;
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sevryn Rogers | Portfolio</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; line-height: 1.5; color: #222; background: #f8f9fa; padding: 0 1rem; }
+    header, section, footer { max-width: 800px; margin: 0 auto 2rem; background: #fff; padding: 1.5rem; border-radius: 8px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+    header { text-align: center; margin-top: 1.5rem; }
+    h1 { margin-bottom: 0.5rem; color: #111; }
+    h2 { margin-bottom: 1rem; border-bottom: 2px solid #0056b3; padding-bottom: 0.3rem; color: #0056b3; }
+    h3 { margin-top: 1rem; margin-bottom: 0.25rem; font-size: 1.1rem; }
+    p, ul { margin-bottom: 0.75rem; }
+    ul { padding-left: 1.25rem; }
+    details { margin-bottom: 1rem; border: 1px solid #ddd; border-radius: 6px; padding: 0.75rem; background: #fafafa; }
+    summary { font-weight: bold; cursor: pointer; font-size: 1.05rem; }
+    .project-content { margin-top: 0.75rem; }
+    .field-label { font-weight: bold; color: #333; margin-top: 0.5rem; }
+    #map { height: 350px; width: 100%; border-radius: 6px; margin-top: 0.75rem; }
+    a { color: #0056b3; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .job-title { font-weight: bold; }
+    .job-sub { font-style: italic; color: #555; margin-bottom: 0.5rem; }
+    iframe { width: 100%; height: 400px; border: none; border-radius: 6px; margin-top: 0.75rem; }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Sevryn Rogers</h1>
+    <p>Geographic Information Science & Technology (GIST) Student at Texas A&M University</p>
+  </header>
+
+  <section id="about">
+    <h2>About</h2>
+    <p>GIST major with a Minor in Geology at Texas A&M University (Expected December 2026), first-generation college student, Regents' Scholarship Recipient, and Dean's List honoree. Technical background spans GIS analysis, remote sensing, and programming.</p>
+  </section>
+
+  <section id="projects">
+    <h2>Projects</h2>
+
+    <!-- Project 1 -->
+    <details>
+      <summary>Campus Flood Risk Mapping & Field Data Collection (GEOG 352)</summary>
+      <div class="project-content">
+        <p class="field-label">Problem:</p>
+        <p>Identify pedestrian bottlenecks and critical walkway inundation points prone to flooding across the main Texas A&M campus.</p>
+        <p class="field-label">What I Did:</p>
+        <p>Collected spatial vector data and flood boundary perimeters using ArcGIS Field Maps on mobile devices; processed GPS points and polygon layers in ArcGIS Pro.</p>
+        <p class="field-label">What I Found:</p>
+        <p>High-risk pedestrian bottlenecks and critical walkway inundation locations on campus.</p>
+        <p class="field-label">What I Would Do Differently:</p>
+        <p>[ADD]</p>
+        <div id="map"></div>
+      </div>
+    </details>
+
+    <!-- Project 2 -->
+    <details>
+      <summary>Environmental Pollution & Health Database (GEOG 391)</summary>
+      <div class="project-content">
+        <p class="field-label">Problem:</p>
+        <p>Evaluate noise and air pollution impacts on respiratory health metrics across 48 states.</p>
+        <p class="field-label">What I Did:</p>
+        <p>Cleaned multi-source EPA, CDC, and Census data; utilized SQL for database management, table joins, and urban vs. rural classification metrics based on county-to-state population thresholds; designed two interactive ArcGIS Online Dashboards featuring live data filters, gauge indicators, and bivariate choropleth maps.</p>
+        <p class="field-label">What I Found:</p>
+        <p>[ADD]</p>
+        <p class="field-label">What I Would Do Differently:</p>
+        <p>[ADD]</p>
+      </div>
+    </details>
+
+    <!-- Project 3 -->
+    <details>
+      <summary>[ADD: Project Title]</summary>
+      <div class="project-content">
+        <p class="field-label">Problem:</p>
+        <p>[ADD]</p>
+        <p class="field-label">What I Did:</p>
+        <p>[ADD]</p>
+        <p class="field-label">What I Found:</p>
+        <p>[ADD]</p>
+        <p class="field-label">What I Would Do Differently:</p>
+        <p>[ADD]</p>
+      </div>
+    </details>
+  </section>
+
+  <section id="resume">
+    <h2>Resume</h2>
+    
+    <h3>Education</h3>
+    <p class="job-title">Texas A&M University, College Station, TX</p>
+    <p class="job-sub">Expected December 2026</p>
+    <ul>
+      <li>Bachelor of Geographic Information Science & Technology (GIST) | Minor in Geology</li>
+      <li>Major GPA: 3.713 | Cumulative GPA: 3.044</li>
+      <li>Dean's List: Fall 2025, Spring 2026, Fall 2026</li>
+      <li>Regents' Scholarship Recipient (First-Generation College Student)</li>
+    </ul>
+
+    <h3>Technical Skills</h3>
+    <ul>
+      <li><strong>GIS & Remote Sensing:</strong> ArcGIS Pro, ArcGIS Online, Geoprocessing, Vector & Raster Analysis, Coordinate Reference Systems (CRS) & Projections, Thematic Cartography, Attribute Table Management</li>
+      <li><strong>Programming & Tools:</strong> Java, Python, Visual Studio Code, SQL / Attribute Queries</li>
+      <li><strong>Productivity & Operations:</strong> Microsoft Office Suite (Advanced Excel, Word, PowerPoint)</li>
+    </ul>
+
+    <h3>Leadership Experience</h3>
+    <p class="job-title">Texas A&M Corps of Cadets (2,400-member student organization)</p>
+    <p class="job-sub">Corps Staff Recruiting Officer (Aug 2025 – Apr 2026)</p>
+    <ul>
+      <li>Directed recruitment initiatives to attract and onboard prospective cadet cohorts; managed scheduling, briefings, and assignments for recruiter teams across campus visit programs.</li>
+      <li>Served as primary spokesperson for prospective student and family events, delivering structured briefings and informational sessions.</li>
+    </ul>
+
+    <h3>Work Experience</h3>
+    <p class="job-title">The Home Depot, Tyler, TX</p>
+    <p class="job-sub">Order Fulfillment Associate (May 2023 – August 2026)</p>
+    <ul>
+      <li>Prioritize and process high-volume digital, in-store, and commercial flatbed freight orders within fast-paced delivery schedules.</li>
+      <li>Maintained an average order turnaround time of 40 minutes, 66% faster than the 2-hour store benchmark.</li>
+    </ul>
+
+    <h3>Activities & Honors</h3>
+    <ul>
+      <li><strong>O.R. Simpson Honor Society:</strong> Provided academic tutoring to fellow cadets across multiple degree disciplines while maintaining over a 3.5 GPA during my tenure.</li>
+      <li><strong>Darling Recruiting Company:</strong> Guided prospective cadets during official Spend the Night with the Corps immersion events.</li>
+    </ul>
+  </section>
+
+  <section id="contact">
+    <h2>Contact</h2>
+    <p>Location: 8078 County Road 3700, Murchison, TX 75778</p>
+    <p>Phone: (903) 422-2098</p>
+    <p>Email: <a href="mailto:sevrynrogers555@gmail.com">sevrynrogers555@gmail.com</a></p>
+  </section>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      var mapInitialized = false;
+      var map;
+
+      var floodPoints = [
+        {
+          lat: 30.6188,
+          lng: -96.3365,
+          title: "Texas A&M Main Campus Walkway",
+          desc: "Critical walkway inundation point and pedestrian bottleneck identified during field surveys."
+        }
+      ];
+
+      var projectDetail = document.querySelector("#projects details");
+      projectDetail.addEventListener("toggle", function () {
+        if (projectDetail.open && !mapInitialized) {
+          map = L.map("map").setView([30.6188, -96.3365], 15);
+
+          L.tileLayer("https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}", {
+            attribution: "Tiles © Esri",
+            maxZoom: 19
+          }).addTo(map);
+
+          floodPoints.forEach(function (pt) {
+            L.marker([pt.lat, pt.lng])
+              .addTo(map)
+              .bindPopup("<strong>" + pt.title + "</strong><br>" + pt.desc);
+          });
+
+          mapInitialized = true;
+          setTimeout(function () {
+            map.invalidateSize();
+          }, 200);
+        } else if (projectDetail.open && mapInitialized) {
+          map.invalidateSize();
+        }
+      });
+    });
+  </script>
+</body>
 </html>
