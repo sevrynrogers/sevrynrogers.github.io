@@ -352,6 +352,56 @@
       box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
     }
 
+    /* Tab Switcher for Dashboards */
+    .tab-bar {
+      display: flex;
+      gap: 0.5rem;
+      margin-top: 0.75rem;
+      background: rgba(0, 0, 0, 0.25);
+      padding: 0.35rem;
+      border-radius: 8px;
+      border: 1px solid var(--card-border);
+      flex-wrap: wrap;
+    }
+
+    .tab-btn {
+      background: transparent;
+      border: none;
+      color: var(--text-muted);
+      font-family: inherit;
+      font-size: 0.85rem;
+      font-weight: 600;
+      padding: 0.45rem 0.9rem;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .tab-btn:hover {
+      color: #fff;
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    .tab-btn.active {
+      color: #fff;
+      background: rgba(56, 189, 248, 0.15);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+    }
+
+    .tab-actions {
+      margin-top: 0.5rem;
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    .open-ext-link {
+      font-size: 0.85rem;
+      color: var(--highlight);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+
     .job-title {
       color: #fff;
       font-weight: 600;
@@ -437,7 +487,7 @@
       }
 
       iframe {
-        height: 300px;
+        height: 320px;
       }
     }
   </style>
@@ -466,7 +516,7 @@
 
   <header id="header">
     <div class="badge">Portfolio</div>
-    <h1>Sevryn Rogers</h1>[cite: 1]
+    <h1>Sevryn Rogers</h1>
     <p class="headline">Geographic Information Science & Technology (GIST) Student at Texas A&M University</p>[cite: 1]
   </header>
 
@@ -492,7 +542,7 @@
         <p>Standardize quantitative criteria for projected flood boundaries to reduce individual observer bias and expand surveys beyond high-traffic routes to include peripheral campus drainage catchments[cite: 2].</p>
         
         <p class="field-label">Campus Flood Survey & Hazard Map</p>
-        <img src="campus_flood_map.jpg" alt="Texas A&M Campus Flooded Areas and Points to Avoid Map" class="project-img" />
+        <img src="campus_flood_map.jpg" alt="Texas A&M Campus Flooded Areas and Points to Avoid Map" class="project-img" />[cite: 3]
 
         <p class="field-label">Embedded ArcGIS Online Map</p>
         <iframe src="https://tamu.maps.arcgis.com/apps/mapviewer/index.html?webmap=dbb35eb6f6204aca8825af4ac344014b&center=-96.340673%2C30.615412&scale=9027.977411" allowfullscreen></iframe>
@@ -506,11 +556,26 @@
         <p class="field-label">Problem</p>
         <p>Evaluate noise and air pollution impacts on respiratory health metrics across 48 states[cite: 1].</p>
         <p class="field-label">What I Did</p>
-        <p>Cleaned multi-source EPA, CDC, and Census data; utilized SQL for database management, table joins, and urban vs. rural classification metrics based on county-to-state population thresholds; designed two interactive ArcGIS Online Dashboards featuring live data filters, gauge indicators, and bivariate choropleth maps[cite: 1].</p>
+        <p>Cleaned multi-source EPA, CDC, and Census data; utilized SQL for database management, table joins, and urban vs. rural classification metrics based on county-to-state population thresholds; designed interactive ArcGIS Online Dashboards featuring live data filters, gauge indicators, and bivariate choropleth maps[cite: 1].</p>
         <p class="field-label">What I Found</p>
         <p>[ADD]</p>
         <p class="field-label">What I Would Do Differently</p>
         <p>[ADD]</p>
+
+        <p class="field-label">Interactive ArcGIS Dashboards</p>
+        <div class="tab-bar">
+          <button class="tab-btn active" data-url="https://www.arcgis.com/apps/dashboards/0d16965535eb43f3935d2f5a41270d72#">Noise Pollution 1</button>
+          <button class="tab-btn" data-url="https://www.arcgis.com/apps/dashboards/06146944e4034398b389ec3cd8676355#">Air Pollution</button>
+          <button class="tab-btn" data-url="https://www.arcgis.com/apps/dashboards/6788ca410d594a17ad1663a07810d6b6#">Noise Pollution 2</button>
+        </div>
+
+        <iframe id="dashboardFrame" src="https://www.arcgis.com/apps/dashboards/0d16965535eb43f3935d2f5a41270d72#" allowfullscreen></iframe>
+
+        <div class="tab-actions">
+          <a id="dashboardExtLink" class="open-ext-link" href="https://www.arcgis.com/apps/dashboards/0d16965535eb43f3935d2f5a41270d72#" target="_blank" rel="noopener noreferrer">
+            Open active dashboard in new tab ↗
+          </a>
+        </div>
       </div>
     </details>
 
@@ -585,6 +650,7 @@
 
   <script>
     document.addEventListener("DOMContentLoaded", function () {
+      // Mobile Navigation Toggle
       var menuToggle = document.getElementById("menuToggle");
       var navLinks = document.getElementById("navLinks");
       var navItems = document.querySelectorAll(".nav-item");
@@ -598,6 +664,21 @@
         item.addEventListener("click", function () {
           menuToggle.classList.remove("open");
           navLinks.classList.remove("active");
+        });
+      });
+
+      // Tab switcher for GEOG 391 dashboards
+      var tabBtns = document.querySelectorAll(".tab-btn");
+      var dashboardFrame = document.getElementById("dashboardFrame");
+      var dashboardExtLink = document.getElementById("dashboardExtLink");
+
+      tabBtns.forEach(function (btn) {
+        btn.addEventListener("click", function () {
+          tabBtns.forEach(function (b) { b.classList.remove("active"); });
+          btn.classList.add("active");
+          var url = btn.getAttribute("data-url");
+          dashboardFrame.src = url;
+          dashboardExtLink.href = url;
         });
       });
     });
