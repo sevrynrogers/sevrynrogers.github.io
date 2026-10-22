@@ -4,7 +4,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sevryn Rogers | Portfolio</title>
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
@@ -64,7 +63,6 @@
       100% { transform: translateY(60px) scale(1.08); }
     }
 
-    /* Fixed Navigation Bar */
     nav {
       position: fixed;
       top: 0;
@@ -124,7 +122,6 @@
       text-decoration: none;
     }
 
-    /* Mobile Hamburger Menu */
     .menu-toggle {
       display: none;
       background: transparent;
@@ -157,7 +154,6 @@
       transform: translateY(-7px) rotate(-45deg);
     }
 
-    /* Page Sections */
     header, section {
       position: relative;
       z-index: 1;
@@ -261,7 +257,6 @@
       color: #fff;
     }
 
-    /* Accordion Project Cards */
     details {
       background: rgba(255, 255, 255, 0.03);
       border: 1px solid var(--card-border);
@@ -338,13 +333,14 @@
       color: var(--text);
     }
 
-    #map {
-      height: 380px;
+    .project-img {
       width: 100%;
+      height: auto;
       border-radius: 10px;
-      margin-top: 1rem;
+      margin-top: 0.75rem;
       border: 1px solid var(--card-border);
       box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+      display: block;
     }
 
     iframe {
@@ -352,11 +348,10 @@
       height: 480px;
       border: 1px solid var(--card-border);
       border-radius: 10px;
-      margin-top: 1rem;
+      margin-top: 0.75rem;
       box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
     }
 
-    /* Resume Typography Styling */
     .job-title {
       color: #fff;
       font-weight: 600;
@@ -369,7 +364,6 @@
       margin-bottom: 0.6rem;
     }
 
-    /* Contact Links & CTA */
     a {
       color: var(--highlight);
       text-decoration: none;
@@ -442,7 +436,7 @@
         margin-bottom: 1.5rem;
       }
 
-      #map, iframe {
+      iframe {
         height: 300px;
       }
     }
@@ -472,13 +466,13 @@
 
   <header id="header">
     <div class="badge">Portfolio</div>
-    <h1>Sevryn Rogers</h1>
-    <p class="headline">Geographic Information Science & Technology (GIST) Student at Texas A&M University</p>
+    <h1>Sevryn Rogers</h1>[cite: 1]
+    <p class="headline">Geographic Information Science & Technology (GIST) Student at Texas A&M University</p>[cite: 1]
   </header>
 
   <section id="about">
     <h2>About</h2>
-    <p>GIST major with a Minor in Geology at Texas A&M University (Expected December 2026), first-generation college student, Regents' Scholarship Recipient, and Dean's List honoree. Technical background spans GIS analysis, remote sensing, and programming.</p>
+    <p>GIST major with a Minor in Geology at Texas A&M University (Expected December 2026), first-generation college student, Regents' Scholarship Recipient, and Dean's List honoree[cite: 1]. Technical background spans GIS analysis, remote sensing, and programming[cite: 1].</p>
   </section>
 
   <section id="projects">
@@ -486,33 +480,33 @@
 
     <!-- Project 1 -->
     <details>
-      <summary>Campus Flood Risk Mapping & Field Data Collection (GEOG 352)</summary>
+      <summary>Campus Flood Risk Mapping & Field Data Collection (GEOG 352)</summary>[cite: 1, 2]
       <div class="project-content">
         <p class="field-label">Problem</p>
-        <p>Recurring stormwater flooding events across Texas A&M University campus create hazardous conditions and impassable pedestrian routes for students and faculty traveling between academic facilities.</p>
+        <p>Recurring stormwater flooding events across Texas A&M University campus create hazardous conditions and impassable pedestrian routes for students and faculty traveling between academic facilities[cite: 2].</p>
         <p class="field-label">What I Did</p>
-        <p>Conducted field surveys using ArcGIS Field Maps on mobile devices across assigned campus sectors (including Zachry Engineering Education Complex area), processed spatial points and polygons in ArcGIS Pro, classified flooding attributes, and synthesized data into an interactive ArcGIS Online web map and final research presentation.</p>
+        <p>Conducted field surveys using ArcGIS Field Maps on mobile devices across assigned campus sectors (including Zachry Engineering Education Complex area), processed spatial points and polygons in ArcGIS Pro, classified flooding attributes, and synthesized data into an interactive ArcGIS Online web map and final research presentation[cite: 1, 2].</p>
         <p class="field-label">What I Found</p>
-        <p>Identified high-impact inundation areas and critical walkway bottlenecks, particularly along Military Walk, Sbisa Dining Hall perimeter, primary Quad walkways, and surrounding the O&M Building, driven by heavy surface runoff, dense foot traffic soil deterioration, and growing impervious coverage.</p>
+        <p>Identified high-impact inundation areas and critical walkway bottlenecks, particularly along Military Walk, Sbisa Dining Hall perimeter, primary Quad walkways, and surrounding the O&M Building, driven by heavy surface runoff, dense foot traffic soil deterioration, and growing impervious coverage[cite: 2].</p>
         <p class="field-label">What I Would Do Differently</p>
-        <p>Standardize quantitative criteria for projected flood boundaries to reduce individual observer bias and expand surveys beyond high-traffic routes to include peripheral campus drainage catchments.</p>
+        <p>Standardize quantitative criteria for projected flood boundaries to reduce individual observer bias and expand surveys beyond high-traffic routes to include peripheral campus drainage catchments[cite: 2].</p>
         
+        <p class="field-label">Campus Flood Survey & Hazard Map</p>
+        <img src="campus_flood_map.jpg" alt="Texas A&M Campus Flooded Areas and Points to Avoid Map" class="project-img" />
+
         <p class="field-label">Embedded ArcGIS Online Map</p>
         <iframe src="https://tamu.maps.arcgis.com/apps/mapviewer/index.html?webmap=dbb35eb6f6204aca8825af4ac344014b&center=-96.340673%2C30.615412&scale=9027.977411" allowfullscreen></iframe>
-
-        <p class="field-label">Interactive Field Data Map</p>
-        <div id="map"></div>
       </div>
     </details>
 
     <!-- Project 2 -->
     <details>
-      <summary>Environmental Pollution & Health Database (GEOG 391)</summary>
+      <summary>Environmental Pollution & Health Database (GEOG 391)</summary>[cite: 1]
       <div class="project-content">
         <p class="field-label">Problem</p>
-        <p>Evaluate noise and air pollution impacts on respiratory health metrics across 48 states.</p>
+        <p>Evaluate noise and air pollution impacts on respiratory health metrics across 48 states[cite: 1].</p>
         <p class="field-label">What I Did</p>
-        <p>Cleaned multi-source EPA, CDC, and Census data; utilized SQL for database management, table joins, and urban vs. rural classification metrics based on county-to-state population thresholds; designed two interactive ArcGIS Online Dashboards featuring live data filters, gauge indicators, and bivariate choropleth maps.</p>
+        <p>Cleaned multi-source EPA, CDC, and Census data; utilized SQL for database management, table joins, and urban vs. rural classification metrics based on county-to-state population thresholds; designed two interactive ArcGIS Online Dashboards featuring live data filters, gauge indicators, and bivariate choropleth maps[cite: 1].</p>
         <p class="field-label">What I Found</p>
         <p>[ADD]</p>
         <p class="field-label">What I Would Do Differently</p>
@@ -540,59 +534,57 @@
     <h2>Resume</h2>
     
     <h3>Education</h3>
-    <p class="job-title">Texas A&M University, College Station, TX</p>
-    <p class="job-sub">Expected December 2026</p>
+    <p class="job-title">Texas A&M University, College Station, TX</p>[cite: 1]
+    <p class="job-sub">Expected December 2026</p>[cite: 1]
     <ul>
-      <li>Bachelor of Geographic Information Science & Technology (GIST) | Minor in Geology</li>
-      <li>Major GPA: 3.713 | Cumulative GPA: 3.044</li>
-      <li>Dean's List: Fall 2025, Spring 2026, Fall 2026</li>
-      <li>Regents' Scholarship Recipient (First-Generation College Student)</li>
+      <li>Bachelor of Geographic Information Science & Technology (GIST) | Minor in Geology[cite: 1]</li>
+      <li>Major GPA: 3.713 | Cumulative GPA: 3.044[cite: 1]</li>
+      <li>Dean's List: Fall 2025, Spring 2026, Fall 2026[cite: 1]</li>
+      <li>Regents' Scholarship Recipient (First-Generation College Student)[cite: 1]</li>
     </ul>
 
     <h3>Technical Skills</h3>
     <ul>
-      <li><strong>GIS & Remote Sensing:</strong> ArcGIS Pro, ArcGIS Online, Geoprocessing, Vector & Raster Analysis, Coordinate Reference Systems (CRS) & Projections, Thematic Cartography, Attribute Table Management</li>
-      <li><strong>Programming & Tools:</strong> Java, Python, Visual Studio Code, SQL / Attribute Queries</li>
-      <li><strong>Productivity & Operations:</strong> Microsoft Office Suite (Advanced Excel, Word, PowerPoint)</li>
+      <li><strong>GIS & Remote Sensing:</strong> ArcGIS Pro, ArcGIS Online, Geoprocessing, Vector & Raster Analysis, Coordinate Reference Systems (CRS) & Projections, Thematic Cartography, Attribute Table Management[cite: 1]</li>
+      <li><strong>Programming & Tools:</strong> Java, Python, Visual Studio Code, SQL / Attribute Queries[cite: 1]</li>
+      <li><strong>Productivity & Operations:</strong> Microsoft Office Suite (Advanced Excel, Word, PowerPoint)[cite: 1]</li>
     </ul>
 
     <h3>Leadership Experience</h3>
-    <p class="job-title">Texas A&M Corps of Cadets (2,400-member student organization)</p>
-    <p class="job-sub">Corps Staff Recruiting Officer (Aug 2025 – Apr 2026)</p>
+    <p class="job-title">Texas A&M Corps of Cadets (2,400-member student organization)</p>[cite: 1]
+    <p class="job-sub">Corps Staff Recruiting Officer (Aug 2025 – Apr 2026)</p>[cite: 1]
     <ul>
-      <li>Directed recruitment initiatives to attract and onboard prospective cadet cohorts; managed scheduling, briefings, and assignments for recruiter teams across campus visit programs.</li>
-      <li>Served as primary spokesperson for prospective student and family events, delivering structured briefings and informational sessions.</li>
+      <li>Directed recruitment initiatives to attract and onboard prospective cadet cohorts; managed scheduling, briefings, and assignments for recruiter teams across campus visit programs[cite: 1].</li>
+      <li>Served as primary spokesperson for prospective student and family events, delivering structured briefings and informational sessions[cite: 1].</li>
     </ul>
 
     <h3>Work Experience</h3>
-    <p class="job-title">The Home Depot, Tyler, TX</p>
-    <p class="job-sub">Order Fulfillment Associate (May 2023 – August 2026)</p>
+    <p class="job-title">The Home Depot, Tyler, TX</p>[cite: 1]
+    <p class="job-sub">Order Fulfillment Associate (May 2023 – August 2026)</p>[cite: 1]
     <ul>
-      <li>Prioritize and process high-volume digital, in-store, and commercial flatbed freight orders within fast-paced delivery schedules.</li>
-      <li>Maintained an average order turnaround time of 40 minutes, 66% faster than the 2-hour store benchmark.</li>
+      <li>Prioritize and process high-volume digital, in-store, and commercial flatbed freight orders within fast-paced delivery schedules[cite: 1].</li>
+      <li>Maintained an average order turnaround time of 40 minutes, 66% faster than the 2-hour store benchmark[cite: 1].</li>
     </ul>
 
     <h3>Activities & Honors</h3>
     <ul>
-      <li><strong>O.R. Simpson Honor Society:</strong> Provided academic tutoring to fellow cadets across multiple degree disciplines while maintaining over a 3.5 GPA during my tenure.</li>
-      <li><strong>Darling Recruiting Company:</strong> Guided prospective cadets during official Spend the Night with the Corps immersion events.</li>
+      <li><strong>O.R. Simpson Honor Society:</strong> Provided academic tutoring to fellow cadets across multiple degree disciplines while maintaining over a 3.5 GPA during my tenure[cite: 1].</li>
+      <li><strong>Darling Recruiting Company:</strong> Guided prospective cadets during official Spend the Night with the Corps immersion events[cite: 1].</li>
     </ul>
   </section>
 
   <section id="contact">
     <h2>Contact</h2>
     <div class="contact-card">
-      <p><strong>Location:</strong> 8078 County Road 3700, Murchison, TX 75778</p>
-      <p><strong>Phone:</strong> (903) 422-2098</p>
-      <p><strong>Email:</strong> sevrynrogers555@gmail.com</p>
+      <p><strong>Location:</strong> 8078 County Road 3700, Murchison, TX 75778</p>[cite: 1]
+      <p><strong>Phone:</strong> (903) 422-2098</p>[cite: 1]
+      <p><strong>Email:</strong> sevrynrogers555@gmail.com</p>[cite: 1]
       <a class="email-btn" href="mailto:sevrynrogers555@gmail.com">Send an Email</a>
     </div>
   </section>
 
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <script>
     document.addEventListener("DOMContentLoaded", function () {
-      // Mobile Navigation Toggle
       var menuToggle = document.getElementById("menuToggle");
       var navLinks = document.getElementById("navLinks");
       var navItems = document.querySelectorAll(".nav-item");
@@ -607,62 +599,6 @@
           menuToggle.classList.remove("open");
           navLinks.classList.remove("active");
         });
-      });
-
-      // Map Initialization
-      var mapInitialized = false;
-      var map;
-
-      var floodPoints = [
-        {
-          lat: 30.6213,
-          lng: -96.3403,
-          title: "Zachry Engineering Complex Area",
-          desc: "Field survey sector evaluating surface drainage and walkway inundation."
-        },
-        {
-          lat: 30.6176,
-          lng: -96.3412,
-          title: "Military Walk & Sbisa Perimeter",
-          desc: "High pedestrian volume walkway identified with recurring inundation."
-        },
-        {
-          lat: 30.6128,
-          lng: -96.3402,
-          title: "Corps Quad Walkways",
-          desc: "Critical walkway bottleneck with frequent flood accumulation."
-        },
-        {
-          lat: 30.6178,
-          lng: -96.3364,
-          title: "O&M Building Vicinity",
-          desc: "Low-elevation drainage bottleneck prone to water pooling."
-        }
-      ];
-
-      var projectDetail = document.querySelector("#projects details");
-      projectDetail.addEventListener("toggle", function () {
-        if (projectDetail.open && !mapInitialized) {
-          map = L.map("map").setView([30.6165, -96.3395], 15);
-
-          L.tileLayer("https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}", {
-            attribution: "Tiles © Esri",
-            maxZoom: 19
-          }).addTo(map);
-
-          floodPoints.forEach(function (pt) {
-            L.marker([pt.lat, pt.lng])
-              .addTo(map)
-              .bindPopup("<strong>" + pt.title + "</strong><br>" + pt.desc);
-          });
-
-          mapInitialized = true;
-          setTimeout(function () {
-            map.invalidateSize();
-          }, 250);
-        } else if (projectDetail.open && mapInitialized) {
-          map.invalidateSize();
-        }
       });
     });
   </script>
